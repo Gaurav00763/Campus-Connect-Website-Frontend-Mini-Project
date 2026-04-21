@@ -6,7 +6,8 @@ const { clubsData } = require("./clubData");
 const { placementDrives } = require("./drivedata");
 const events = require("./eventData");
 
-const MONGO_DB = "mongodb://127.0.0.1:27017/CampusConnect";
+// const MONGO_DB = "mongodb://127.0.0.1:27017/CampusConnect";
+const MONGO_DB = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/CampusConnect";
 
 async function seedDB() {
   try {
