@@ -19,7 +19,7 @@ const authRoute = require("./routes/authRoute");
 
 const MONGO_DB = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;
-const origin: process.env.FRONTEND_URL || "http://localhost:5173"
+const origin = process.env.FRONTEND_URL || "http://localhost:5173";
 
 async function main() {
   await mongoose.connect(MONGO_DB);
@@ -37,7 +37,7 @@ app.use(
 
 app.use(
   session({
-    secret: "secretcode",
+    secret: process.env.SESSION_SECRET || "campus_connect_mini_project_mca",
     resave: false,
     saveUninitialized: false,
   }),
