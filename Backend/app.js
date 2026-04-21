@@ -14,8 +14,12 @@ const eventRoute = require("./routes/eventRoute");
 const userRoute = require("./routes/userRoute");
 const authRoute = require("./routes/authRoute");
 
-const MONGO_DB = "mongodb://127.0.0.1:27017/CampusConnect";
-const PORT = 5000;
+// const MONGO_DB = "mongodb://127.0.0.1:27017/CampusConnect";
+// const PORT = 5000;
+
+const MONGO_DB = process.env.MONGO_URL;
+const PORT = process.env.PORT || 5000;
+const origin: process.env.FRONTEND_URL || "http://localhost:5173"
 
 async function main() {
   await mongoose.connect(MONGO_DB);
